@@ -1,8 +1,10 @@
 const gridContainer = document.getElementById("grid-container");
+let currentGrid = 16;
+document.getElementById("current-size").innerHTML = "Current grid size: " + currentGrid;
 
 const gridContainerStyle = [
-    "height: 400px;",
-    "width: 400px;",
+    "height: 500px;",
+    "width: 500px;",
     "display: flex;",
     "flex-direction: column;",
     "justify-content: center;",
@@ -67,15 +69,21 @@ function generateGrid(size) {
     }
 }
 
-function showAlert() {
-    let gridSize = prompt("Specify the number of squares.");
-    if (isNaN(gridSize)) {
-
-    } else {
-
-    }
+function submitGridValue() {
+    const gridSize = document.getElementById("grid-size").value;
+    currentGrid = gridSize;
     generateGrid(gridSize);
 }
 
-generateGrid(16);
+
+//Reset Grid
+function shake() {
+    gridContainer.classList.add("shake")
+    setTimeout(function () {
+        gridContainer.classList.remove("shake");
+    }, 500);
+    generateGrid(currentGrid);
+}
+
+generateGrid(currentGrid);
 
