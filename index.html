@@ -9,8 +9,25 @@
 </head>
 
 <body>
-    <div class="content-wrapper">
-        <div id="grid-container"></div>
+    <div style="display: flex; height: 100vh;">
+        <div class="content-wrapper">
+            <h1 class="title">Etch-a-Sketch</h1>
+            <div class="controls">
+                <div class="form-wrapper">
+                    <p id="current-size"></p>
+                    <label for="grid-size">Grid Size (Maximum 100):</label>
+                    <p id="error-alert"></p>
+                    <div class="input-wrapper">
+                        <input type="number" id="grid-size" class="input">
+                        <button class="btn btn-generate" onclick="submitGridValue()">Generate</button>
+                    </div>
+                </div>
+                <div class="btn-wrapper">
+                    <button class="btn btn-shake" onclick="shake()">Shake</button>
+                </div>
+            </div>
+            <div id="grid-container"></div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
