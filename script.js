@@ -69,10 +69,23 @@ function generateGrid(size) {
     }
 }
 
+//Check if the input value is valid 
+function validateValue(input) {
+    const value = parseFloat(input);
+    return !(isNaN(value) || value === 0 || value > 100);
+}
+
+//Gets the user's inputed grid value
 function submitGridValue() {
-    const gridSize = document.getElementById("grid-size").value;
-    currentGrid = gridSize;
-    generateGrid(gridSize);
+    const alert = document.getElementById('error-alert');
+    const gridInput = document.getElementById("grid-size").value;
+    if (validateValue(gridInput)) {
+        currentGrid = gridInput;
+        generateGrid(gridInput);
+        alert.innerHTML = "";
+    } else {
+        alert.innerHTML = "Invalid input. Please try again!";
+    }
 }
 
 
