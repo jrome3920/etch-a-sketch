@@ -14,7 +14,7 @@
     --font-weight-bold: 700;
 
     --color-1: #538392;
-    --color-2: #538392;
+    --color-2: #6295A2;
     --color-3: #80B9AD;
     --color-4: #B3E2A7;
 }
@@ -25,7 +25,8 @@ html {
 }
 
 body{
-    background-color: var(--color-1);
+    background-color: var(--color-2);
+    margin-bottom: 100px;
 }
 
 p{
@@ -123,6 +124,19 @@ p{
 
 .shake {
     animation: shake .4s;
+}
+
+footer{
+    background-color: var(--color-1);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+
+    & p{
+        margin: 0;
+    }
 }
 
 /* --------CSS for devices with a maximum width of 768px ---------*/
