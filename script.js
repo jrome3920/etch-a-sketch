@@ -10,7 +10,7 @@ const gridContainerStyle = [
     "display: flex;",
     "flex-direction: column;",
     "justify-content: center;",
-    "gap: 2px;"
+    "gap: 1px;"
 ].join(' ');
 
 gridContainer.style = gridContainerStyle;
@@ -18,18 +18,27 @@ gridContainer.style = gridContainerStyle;
 gridRowStyle = [
     "display: flex;",
     "justify-content: center;",
-    "gap: 2px;",
+    "gap: 1px;",
     "flex-grow: 1;"
 ].join(' ');
 
 const gridItemStyle = [
     "flex-grow: 1;",
     "border: 1px solid #000;",
+    "border-radius: 4px;",
     "background-color: #fff;",
     "flex-shrink: 0;",
     "display: flex;",
     "flex-direction: column;"
 ].join(' ');
+
+function generateRandomRGB() {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+    var color = "rgb(" + red + ", " + green + ", " + blue + ", 0.1)";
+    return color;
+}
 
 function generateGrid(size) {
     //This function removes the current grid created inside the grid-container
@@ -55,14 +64,18 @@ function generateGrid(size) {
             gridItem.addEventListener("mouseover", function () {
                 currentBackground = gridItem.style.backgroundColor;
                 if (currentBackground === "rgb(255, 255, 255)") {
-                    gridItem.style.backgroundColor = "rgba(0, 0, 0, 0.1)"
+                    const color = generateRandomRGB();
+                    gridItem.style.backgroundColor = color;
+                    console.log(color);
                 } else {
                     //Gets the background-color of the grid and separates all numeric values
                     const backgroundColor = gridItem.style.backgroundColor;
                     const rgbaValues = backgroundColor.match(/[\d.]+/g);
                     let opacity = parseFloat(rgbaValues[3]); // Convert opacity to a number
                     if (opacity < "1") {
-                        gridItem.style.backgroundColor = "rgba(0, 0, 0," + (opacity + 0.1) + ")";
+                        opacity += 0.1;
+                        // Apply the new RGBA color with increased opacity
+                        gridItem.style.backgroundColor = `rgba(${rgbaValues[0]}, ${rgbaValues[1]}, ${rgbaValues[2]}, ${opacity})`;
                     }
                 }
             });
