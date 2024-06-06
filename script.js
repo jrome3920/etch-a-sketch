@@ -1,6 +1,10 @@
 const gridContainer = document.getElementById("grid-container");
 let currentGrid = 16;
-document.getElementById("current-size").innerHTML = "Current grid size: " + currentGrid;
+
+function getCurrentSize() {
+    document.getElementById("current-size").innerHTML = "Current grid size: " + currentGrid;
+}
+
 
 const gridContainerStyle = [
     "display: flex;",
@@ -81,6 +85,7 @@ function submitGridValue() {
         currentGrid = gridInput;
         generateGrid(gridInput);
         alert.innerHTML = "";
+        getCurrentSize();
     } else {
         alert.innerHTML = "Invalid input. Please try again!";
     }
@@ -97,4 +102,5 @@ function shake() {
 }
 
 generateGrid(currentGrid);
+getCurrentSize();
 
