@@ -3,8 +3,6 @@ let currentGrid = 16;
 document.getElementById("current-size").innerHTML = "Current grid size: " + currentGrid;
 
 const gridContainerStyle = [
-    "height: 500px;",
-    "width: 500px;",
     "display: flex;",
     "flex-direction: column;",
     "justify-content: center;",
