@@ -47,13 +47,15 @@ p{
 }
 
 .title {
-    margin-bottom: 2rem ;
+    margin: 2rem 0;
     grid-column: span 3;
     text-align: center;
     line-height: 1;
 }
 
 #grid-container{
+    height: 470px;
+    width: 470px;
     border: 6px dashed var(--color-1);
     padding: .5rem;
     border-radius: 1rem;
@@ -126,21 +128,21 @@ p{
 /* --------CSS for devices with a maximum width of 768px ---------*/
 @media screen and (max-width: 768px) {
     .controls{
-        grid-column: span 3;
-        width: 500px;
-        margin: auto;
-        padding: 1rem 0 2rem 0;
+        margin-bottom: 2rem;
+        padding: 0;
     }
 
     .input-wrapper{
         display: inline-flex;
     }
 
-    .btn-shake{
-        flex: 0 0 auto;
+    #grid-container{
+       height: 350px;
+       width: 350px;
     }
 
-    #grid-container{
-       grid-column: span 3;
+    .content-wrapper{
+        width: 350px;
+        display: block;
     }
 }
